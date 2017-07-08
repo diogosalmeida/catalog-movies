@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const connect = require('../configDB/connect');
 const Schema = mongoose.Schema;
 
 const MovieSchema = new Schema({
@@ -10,6 +11,5 @@ const MovieSchema = new Schema({
     likes: Number,
     did_not_like: Number
 });
-
 
 module.exports = mongoose.model('MovieModel',MovieSchema);
