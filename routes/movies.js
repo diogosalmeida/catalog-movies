@@ -1,4 +1,5 @@
 const express = require('express');
+const movie = require('../movie');
 const router = express.Router();
 
 /* GET users listing. */
@@ -11,6 +12,6 @@ router.post('/insert-movie',(req,res)=>{
 })
 
 router.get('/list-movies',(req,res)=>{
-  res.send('Bem vindo a lista de Filmes')
+  res.json(movie);
 })
 module.exports = router;
