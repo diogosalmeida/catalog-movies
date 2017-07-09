@@ -48,14 +48,14 @@ router.post('/insert-movie', (req, res) => {
   let movie = new MovieModel(movieFake);
   movie.save().then((error, movie) => {
     if (error) {res.send(error)}
-    res.json({ status: 201, message: "Filme salvo com sucesso", movie: movie }).statusCode(201);
+    res.json({ status: 200, message: "Filme salvo com sucesso", movie: movie }).statusCode(200);
   })
 });
 
 router.delete('/remove-movie/:id', (req, res) => {
   MovieModel.deleteOne({ _id: req.params.id }, (error, movie) => {
     if (error) throw error;
-    res.json({ status: 202, message: "Filme excluido com sucesso" }).statusCode(202);
+    res.json({ status: 200, message: "Filme excluido com sucesso" }).statusCode(200);
   })
 });
 
