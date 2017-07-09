@@ -8,7 +8,7 @@ const moment = require('moment');
         comments: [
             {
                 body: "Filmes muito interessante, fiquei com medo do final <3",
-                date: moment().format('29-08-1999')
+                date: moment().format('DD-MM-YYYY')
             }],
         release_year: "28 de junho de 2005",
         likes: 2000,
