@@ -21,6 +21,18 @@ router.get('/find-movie/:id', (req, res) => {
   })
 })
 
+
+router.put('/like-movie/:id',(req,res)=>{
+  MovieModel.findOne({_id:req.params.id},(error,movie)=>{
+     movie.likes += 1;
+
+      movie.save().then((error, movie) => {
+      if (error) { res.send(error); }
+      res.json({ status: 200, message: "Sua curtida foi processada", movie: movie });
+    })    
+  });
+});
+
 router.put('/update-movie/:id', (req, res) => {
   MovieModel.findOne({ _id: req.params.id }, (error, movie) => {
     if (error) { res.send(error) }
@@ -36,14 +48,14 @@ router.post('/insert-movie', (req, res) => {
   let movie = new MovieModel(movieFake);
   movie.save().then((error, movie) => {
     if (error) {res.send(error)}
-    res.json({ status: 200, message: "Filme salvo com sucesso", movie: movie });
+    res.json({ status: 201, message: "Filme salvo com sucesso", movie: movie }).statusCode(201);
   })
 });
 
 router.delete('/remove-movie/:id', (req, res) => {
   MovieModel.deleteOne({ _id: req.params.id }, (error, movie) => {
     if (error) throw error;
-    res.json({ status: 200, message: "Filme excluido com sucesso" });
+    res.json({ status: 202, message: "Filme excluido com sucesso" }).statusCode(202);
   })
 });
 
