@@ -51,22 +51,22 @@ router.put('/insert-comment/:id', (req, res) => {
 
     movie.comments.push(
       {
-        body: "Uma bosta",
+        body: "Interessante",
         date: moment().format('DD-MM-YYYY')
       },
       {
-        body: "Um lixo",
+        body: "Bacana",
         date: moment().format('DD-MM-YYYY')
       },
       {
-        body: "Meu ovo",
+        body: "Meio fraco",
         date: moment().format('DD-MM-YYYY')
       }
     )
 
     movie.save().then((error, movie) => {
       if (error) { res.send(error); }
-      res.json({ status: 200, message: "Filme alterado com sucesso", movie: movie }).statusCode(200);
+      res.json({ status: 200, message: "Filme alterado com sucesso", movie: movie })
     })
   })
 });
@@ -75,14 +75,14 @@ router.post('/insert-movie', (req, res) => {
   let movie = new MovieModel(movieFake);
   movie.save().then((error, movie) => {
     if (error) { res.send(error) }
-    res.json({ status: 200, message: "Filme salvo com sucesso", movie: movie }).statusCode(200);
+    res.json({ status: 200, message: "Filme salvo com sucesso", movie: movie })
   })
 });
 
 router.delete('/remove-movie/:id', (req, res) => {
   MovieModel.deleteOne({ _id: req.params.id }, (error, movie) => {
     if (error) throw error;
-    res.json({ status: 200, message: "Filme excluido com sucesso" }).statusCode(200);
+    res.json({ status: 200, message: "Filme excluido com sucesso" })
   })
 });
 
