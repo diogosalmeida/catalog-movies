@@ -48,21 +48,11 @@ router.put('/update-movie/:id', (req, res) => {
 router.put('/insert-comment/:id', (req, res) => {
   MovieModel.findOne({ _id: req.params.id }, (error, movie) => {
     if (error) { res.send(error) }
-
-    movie.comments.push(
-      {
-        body: "Interessante",
-        date: moment().format('DD-MM-YYYY')
-      },
-      {
-        body: "Bacana",
-        date: moment().format('DD-MM-YYYY')
-      },
-      {
-        body: "Meio fraco",
-        date: moment().format('DD-MM-YYYY')
-      }
-    )
+    const comment = {
+      body:req.body.comment,
+      date:moment().format('DD-MM-YYYY')
+    }
+    movie.comments.push(comment)
 
     movie.save().then((error, movie) => {
       if (error) { res.send(error); }
