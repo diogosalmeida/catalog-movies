@@ -1,15 +1,15 @@
-const express = require('express');
-const path = require('path');
-const favicon = require('serve-favicon');
-const logger = require('morgan');
-const cookieParser = require('cookie-parser');
-const bodyParser = require('body-parser');
+'use strict';
 
-const index  = require('./routes/index');
-const users  = require('./routes/users');
-const movies = require('./routes/movies');
-
-const app = express();
+const express = require('express'),
+      path = require('path'),
+      favicon = require('serve-favicon'),
+      logger = require('morgan'),
+      cookieParser = require('cookie-parser'),
+      bodyParser = require('body-parser'),
+      index  = require('./routes/index'),
+      users  = require('./routes/users'),
+      movies = require('./routes/movies'),
+      app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,11 +22,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-
 app.use('/', index);
 app.use('/users', users);
 app.use('/movies', movies);
-
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

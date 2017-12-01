@@ -1,5 +1,7 @@
-const express = require('express');
-const router = express.Router();
+'use strict';
+
+const express = require('express'),
+      router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
