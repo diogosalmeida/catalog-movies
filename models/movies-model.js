@@ -1,3 +1,5 @@
+'use strict';
+
 const mongoose = require('mongoose'),
       connect = require('../configDB/connect')(),
       Schema = mongoose.Schema,

@@ -1,6 +1,8 @@
+'use strict';
+
 const moment = require('moment');
 
-    let movie = {
+    const movie = {
         title: "Guerra dos mundos",
         poster: "https://goo.gl/Smo65r",
         direction: "Steven Spielberg",

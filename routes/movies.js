@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express'),
       movieFake = require('../movie'),
       router = express.Router(),
