@@ -1,8 +1,9 @@
-const express = require('express');
-const movieFake = require('../movie');
-const router = express.Router();
-const moment = require("moment");
-const MovieModel = require('../models/movies-model');
+const express = require('express'),
+      movieFake = require('../movie'),
+      router = express.Router(),
+      moment = require("moment"),
+      MovieModel = require('../models/movies-model');
+
 /* GET users listing. */
 router.get('/', (req, res, next) => {
   res.send('Bem vindo a Api de filmes');
@@ -21,7 +22,6 @@ router.get('/find-movie/:id', (req, res) => {
     res.json(movie)
   })
 })
-
 
 router.put('/like-movie/:id', (req, res) => {
   MovieModel.findOne({ _id: req.params.id }, (error, movie) => {
